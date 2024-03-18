@@ -57,6 +57,7 @@ export const selectedProductAsync = createAsyncThunk(
 export const updateProductAsync = createAsyncThunk(
   "product/update/:id",
   async ({ product, token }) => {
+    console.log(product,"slice")
     let response = await updateProduct(product, token);
     return response;
   }

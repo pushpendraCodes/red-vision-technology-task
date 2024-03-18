@@ -5,7 +5,7 @@
   export function fetchLoggedInUser(user) {
     return new Promise(async (resolve) =>{
       // console.log(user.user,"sjbdu")
-      const response = await fetch(`${process.env.REACT_API_URL}/user/`+user.user,
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/user/`+user.user,
       {
         headers: {
           "Content-Type": "application/json",
@@ -28,7 +28,7 @@
     }
     // console.log(queryString, "queryString");
     return new Promise(async (resolve) => {
-      let response = await fetch(`${process.env.REACT_API_URL}/order/user?` + queryString,
+      let response = await fetch(`${process.env.REACT_APP_API_URL}/order/user?` + queryString,
       {
         method: "POST",
         body: JSON.stringify({id:id}),
@@ -49,7 +49,7 @@
   export function UpdateUser(newAds,token) {
     return new Promise(async (resolve) => {
   console.log(newAds,"newAds")
-      let response = await fetch(`${process.env.REACT_API_URL}/user/`+newAds.id, {
+      let response = await fetch(`${process.env.REACT_APP_API_URL}/user/`+newAds.id, {
         method: "PATCH",
         body: JSON.stringify(newAds),
         headers: { "content-type": "application/json" ,

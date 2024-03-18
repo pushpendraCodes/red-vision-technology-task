@@ -49,7 +49,7 @@ export default function App() {
   let dispatch = useDispatch();
 
   let user = useSelector(SelectedLoggedUser)
-  // console.log(user, "user1");
+  console.log(process.env.REACT_APP_API_URL,"dn d");
 
   const options = {
     timeout: 5000,

@@ -3,7 +3,7 @@
 export function CreateOrder(order,token) {
     return new Promise(async (resolve) => {
 
-      let response = await fetch(`${process.env.REACT_API_URL}/order`, {
+      let response = await fetch(`${process.env.REACT_APP_API_URL}/order`, {
         method: "POST",
         body: JSON.stringify(order),
         headers: { "content-type": "application/json",

@@ -16,7 +16,7 @@ exports.createProduct = async (req, res) => {
 exports.fetchProduct = async (req, res) => {
   try {
     const books = await Books.find()
-    // console.log(books,"all books")
+    console.log(books,"all books")
     res.status(200).json(books);
   } catch (error) {
     res.status(401).json(error);
@@ -66,7 +66,7 @@ exports.filterProduct = async (req, res) => {
 
   try {
     const docs = await query.exec();
-    // console.log(docs,"dosc")
+    console.log(docs,"dosc")
     res.set("X-Total-Count", totalDocs);
     res.status(200).json(docs);
   } catch (err) {

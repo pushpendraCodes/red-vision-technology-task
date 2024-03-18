@@ -3,7 +3,7 @@
 // let user = JSON.parse(localStorage.getItem("user"))
 export function FetchProduct(token) {
   return new Promise(async (resolve) => {
-    let response = await fetch(`${process.env.REACT_API_URL}/books`,
+    let response = await fetch(`${process.env.REACT_APP_API_URL}/books`,
 
     {
       headers: {
@@ -14,14 +14,14 @@ export function FetchProduct(token) {
     );
     let data = await response.json();
     resolve(data);
-    // console.log(data);
+    console.log(data,"fecth product");
   });
 }
 
 // add product
 export function CreateProduct(product,token) {
   return new Promise(async (resolve) => {
-    let response = await fetch(`${process.env.REACT_API_URL}/books`, {
+    let response = await fetch(`${process.env.REACT_APP_API_URL}/books`, {
       method: "POST",
       body: JSON.stringify(product),
       headers: { "content-type": "application/json",
@@ -73,7 +73,7 @@ export function FilterProduct(filter, sort, pagination,search_qurey,token) {
 
   // console.log(queryString, "queryString");
   return new Promise(async (resolve) => {
-    let response = await fetch(`${process.env.REACT_API_URL}/books?`+queryString,
+    let response = await fetch(`${process.env.REACT_APP_API_URL}/books?` + queryString,
     {
       headers: {
         "Content-Type": "application/json",
@@ -91,7 +91,7 @@ export function FilterProduct(filter, sort, pagination,search_qurey,token) {
 export function selectedProduct(id,token) {
   // console.log(token);
   return new Promise(async (resolve) => {
-    let response = await fetch(`${process.env.REACT_API_URL}/books/` + id,
+    let response = await fetch(`${process.env.REACT_APP_API_URL}/books/` + id,
 
     {
       headers: {
@@ -108,8 +108,9 @@ export function selectedProduct(id,token) {
 // edit product
 
 export function updateProduct(product,token) {
+  console.log(product,"orr")
   return new Promise(async (resolve) => {
-    let response = await fetch(`${process.env.REACT_API_URL}/books/` + product.id, {
+    let response = await fetch(`${process.env.REACT_APP_API_URL}/books/` + product.id, {
       method: "PATCH",
       body: JSON.stringify(product),
       headers: { "content-type": "application/json",

@@ -66,7 +66,7 @@ export default function ProductForm() {
       setValue("year", selectedproduct.year);
     }
   }, [selectedproduct, param.id]);
-
+  let user = JSON.parse(localStorage.getItem("user"))
   const onSubmit = (data) => {
     const product = { ...data };
     product.images = [product.image1, product.image2, product.image3];
@@ -78,7 +78,7 @@ export default function ProductForm() {
     product.rating = 4.5;
     product.discountPercentage = +product.discountPercentage;
     console.log(product, "product");
-    let user = JSON.parse(localStorage.getItem("user"))
+
     if (param.id) {
       product.id = param.id;
       product.rating = selectedproduct.rating || 0;
@@ -95,9 +95,11 @@ export default function ProductForm() {
 
   // deleted product
   const handleDelete = () => {
-    const product = { ...selectedproduct };
+    let product = { ...selectedproduct };
     product.deleted = true;
-    dispatch(updateProductAsync(product));
+    console.log(product, "product")
+    dispatch(updateProductAsync({product,token:user.token}))
+    alert.success("product updated");
   };
   // const brands = useSelector(selectAllbrands);
   // const category = useSelector(selectAllCategory);
