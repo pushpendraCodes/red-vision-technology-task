@@ -5,7 +5,7 @@
 export function CreateUser(userInfo) {
   return new Promise(async (resolve,reject) => {
     // console.log(userInfo);
-    let response = await fetch("http://localhost:4000/auth/create", {
+    let response = await fetch(`${process.env.REACT_APP_API_URL}/auth/create`, {
       method: "POST",
       body: JSON.stringify(userInfo),
       headers: { "content-type": "application/json" },
@@ -28,7 +28,7 @@ export function CreateUser(userInfo) {
 export function loginUser(loginInfo) {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch('http://localhost:4000/auth/login', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
         method: 'POST',
         body: JSON.stringify(loginInfo),
         headers: { 'content-type': 'application/json' },
@@ -51,7 +51,7 @@ export function loginUser(loginInfo) {
 export function loginDemoUser() {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch('http://localhost:4000/auth/loginDemo', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/loginDemo`, {
         method: 'POST',
         // body: JSON.stringify(loginInfo),
         headers: { 'content-type': 'application/json' },
@@ -74,7 +74,7 @@ export function loginDemoUser() {
 export function resetPasswordRequest(email) {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch('http://localhost:4000/auth/resetPasswordRequest', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/resetPasswordRequest`, {
         method: 'POST',
         body: JSON.stringify({email}),
         headers: { 'content-type': 'application/json' },
@@ -97,7 +97,7 @@ export function resetPasswordRequest(email) {
 export function resetPassword(data) {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch('http://localhost:4000/auth/reset-password', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/auth/reset-password`, {
         method: 'POST',
         body: JSON.stringify(data),
         headers: { 'content-type': 'application/json' },
